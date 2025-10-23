@@ -8,7 +8,7 @@ public class Libro {
     private String isbn;
     private int anioPublicacion;
     private int copiasDisponibles;
-    private boolean estado;
+    private String estado; // Disponible - No disponible
 
     public Libro(String titulo, String autor, int anioPublicacion, int copiasDisponibles) {
         this.id = Libro.contador++;
@@ -62,11 +62,11 @@ public class Libro {
         this.copiasDisponibles = copiasDisponibles;
     }
 
-    public boolean isEstado() {
+    public String getEstado() {
         return this.estado;
     }
 
-    public void setEstado(boolean estado) {
+    public void setEstado(String estado) {
         this.estado = estado;
     }
 }
