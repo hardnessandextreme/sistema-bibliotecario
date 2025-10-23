@@ -78,11 +78,11 @@ public class Usuario {
         this.email = email;
     }
 
-    public boolean isEstado() {
+    public String getEstado() {
         return this.estado;
     }
 
-    public void setEstado(boolean estado) {
+    public void setEstado(String estado) {
         this.estado = estado;
     }
 
