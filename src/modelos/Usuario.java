@@ -6,79 +6,84 @@ import java.util.Locale;
 
 public class Usuario {
     private static int contadorUsuario = 0;
-    private int idUsuario;
-    private String nombreUsuario;
-    private String apellidoUsuario ;
-    private String cedulaUsuario;
-    private String celularUsuario;
-    private String emailUsuario;
-    private LocalDateTime fechaRegistroUsuario;
-    private boolean estadoUsuario;
+    private int id;
+    private String nombre;
+    private String apellido;
+    private String cedula;
+    private String numeroTelefono;
+    private String email;
+    private final LocalDateTime fechaRegistroUsuario;
+    private boolean estado;
 
-    public Usuario(String nombreUsuario) {
-        this.idUsuario = Usuario.contadorUsuario++;
-        this.nombreUsuario = nombreUsuario;
+    public Usuario(String nombre, String apellido, String cedula, String numeroTelefono, String email) {
+        this.id = Usuario.contadorUsuario++;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.cedula = cedula;
+        this.numeroTelefono = numeroTelefono;
+        this.email = email;
+        this.estado = true;
         this.fechaRegistroUsuario = LocalDateTime.now();
     }
 
     @Override
     public String toString() {
         return "Usuario{" +
-                "nombreUsuario='" + this.nombreUsuario + '\'' +
+                "nombreUsuario='" + this.nombre + '\'' +
                 ", registroUsuario=" + getFechaRegistroUsuario() +
                 '}';
     }
 
-    public int getIdUsuario() {
-        return idUsuario;
+    public int getId() {
+        return this.id;
     }
 
-    public String getNombreUsuario() {
-        return nombreUsuario;
+    public String getNombre() {
+        return this.nombre;
     }
 
-    public void setNombreUsuario(String nombreUsuario) {
-        this.nombreUsuario = nombreUsuario;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
-    public String getApellidoUsuario() {
-        return apellidoUsuario;
+    public String getApellido() {
+        return this.apellido;
     }
 
-    public void setApellidoUsuario(String apellidoUsuario) {
-        this.apellidoUsuario = apellidoUsuario;
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
     }
 
-    public String getCedulaUsuario() {
-        return cedulaUsuario;
+    public String getCedula() {
+        return this.cedula;
     }
 
-    public void setCedulaUsuario(String cedulaUsuario) {
-        this.cedulaUsuario = cedulaUsuario;
+    public void setCedula(String cedula) {
+        this.cedula = cedula;
     }
 
-    public String getCelularUsuario() {
-        return celularUsuario;
+    public String getNumeroTelefono() {
+        return this.numeroTelefono;
     }
 
-    public void setCelularUsuario(String celularUsuario) {
-        this.celularUsuario = celularUsuario;
+    public void setNumeroTelefono(String numeroTelefono) {
+        this.numeroTelefono = numeroTelefono;
     }
 
-    public String getEmailUsuario() {
-        return emailUsuario;
+    public String getEmail() {
+        return this.email;
     }
 
-    public void setEmailUsuario(String emailUsuario) {
-        this.emailUsuario = emailUsuario;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public boolean isEstadoUsuario() {
-        return estadoUsuario;
+    public boolean isEstado() {
+        return this.estado;
     }
 
-    public void setEstadoUsuario(boolean estadoUsuario) {
-        this.estadoUsuario = estadoUsuario;
+    public void setEstado(boolean estado) {
+        this.estado = estado;
     }
 
     public String getFechaRegistroUsuario() {
@@ -87,10 +92,10 @@ public class Usuario {
     }
 }
 
-class prueba{
-    public static void main(String[] args) {
-        Usuario usuario = new Usuario("Jonathan");
-
-        System.out.println(usuario);
-    }
-}
+//class prueba{
+//    public static void main(String[] args) {
+//        Usuario usuario = new Usuario("Jonathan");
+//
+//        System.out.println(usuario);
+//    }
+//}
