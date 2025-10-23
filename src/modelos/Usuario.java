@@ -5,7 +5,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 
 public class Usuario {
-    private static int contadorUsuario = 0;
+    private static int contador = 0;
     private int id;
     private String nombre;
     private String apellido;
@@ -16,7 +16,7 @@ public class Usuario {
     private boolean estado;
 
     public Usuario(String nombre, String apellido, String cedula, String numeroTelefono, String email) {
-        this.id = Usuario.contadorUsuario++;
+        this.id = Usuario.contador++;
         this.nombre = nombre;
         this.apellido = apellido;
         this.cedula = cedula;

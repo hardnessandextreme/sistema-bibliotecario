@@ -1,7 +1,7 @@
 package modelos;
 
 public class Libro {
-    private static int contadorLibro = 0;
+    private static int contador = 0;
     private int id;
     private String titulo;
     private String autor;
@@ -11,7 +11,7 @@ public class Libro {
     private boolean estado;
 
     public Libro(String titulo, String autor, int anioPublicacion, int copiasDisponibles) {
-        this.id = Libro.contadorLibro++;
+        this.id = Libro.contador++;
         this.titulo = titulo;
         this.autor = autor;
         this.anioPublicacion = anioPublicacion;
