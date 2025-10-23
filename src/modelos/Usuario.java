@@ -6,7 +6,7 @@ import java.util.Locale;
 
 public class Usuario {
     private static int contador = 0;
-    private int id;
+    private final int id;
     private String nombre;
     private String apellido;
     private String cedula;

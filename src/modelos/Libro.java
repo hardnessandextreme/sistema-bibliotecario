@@ -2,13 +2,13 @@ package modelos;
 
 public class Libro {
     private static int contador = 0;
-    private int id;
+    private final int id;
     private String titulo;
     private String autor;
     private String isbn;
     private int anioPublicacion;
     private int copiasDisponibles;
-    private String estado; // Disponible - No disponible
+    private String estado; // disponible - no disponible
 
     public Libro(String titulo, String autor, int anioPublicacion, int copiasDisponibles) {
         this.id = Libro.contador++;
@@ -16,6 +16,7 @@ public class Libro {
         this.autor = autor;
         this.anioPublicacion = anioPublicacion;
         this.copiasDisponibles = copiasDisponibles;
+        setCopiasDisponibles(copiasDisponibles);
     }
 
     public int getId() {
