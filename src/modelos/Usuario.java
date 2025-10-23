@@ -13,7 +13,7 @@ public class Usuario {
     private String numeroTelefono;
     private String email;
     private final LocalDateTime fechaRegistroUsuario;
-    private boolean estado;
+    private String estado; // activo - inactivo
 
     public Usuario(String nombre, String apellido, String cedula, String numeroTelefono, String email) {
         this.id = Usuario.contador++;
@@ -22,7 +22,7 @@ public class Usuario {
         this.cedula = cedula;
         this.numeroTelefono = numeroTelefono;
         this.email = email;
-        this.estado = true;
+        this.estado = "activo";
         this.fechaRegistroUsuario = LocalDateTime.now();
     }
 
