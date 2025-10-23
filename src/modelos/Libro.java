@@ -10,13 +10,27 @@ public class Libro {
     private int copiasDisponibles;
     private String estado; // disponible - no disponible
 
-    public Libro(String titulo, String autor, int anioPublicacion, int copiasDisponibles) {
+    public Libro(String titulo, String autor, String isbn, int anioPublicacion, int copiasDisponibles) {
         this.id = Libro.contador++;
         this.titulo = titulo;
         this.autor = autor;
+        this.isbn = isbn;
         this.anioPublicacion = anioPublicacion;
         this.copiasDisponibles = copiasDisponibles;
         setCopiasDisponibles(copiasDisponibles);
+    }
+
+    @Override
+    public String toString() {
+        return "Libro{" +
+                "id=" + id +
+                ", titulo='" + titulo + '\'' +
+                ", autor='" + autor + '\'' +
+                ", anioPublicacion=" + anioPublicacion +
+                ", isbn='" + isbn + '\'' +
+                ", copiasDisponibles=" + copiasDisponibles +
+                ", estado='" + estado + '\'' +
+                '}';
     }
 
     public int getId() {
@@ -60,7 +74,11 @@ public class Libro {
     }
 
     public void setCopiasDisponibles(int copiasDisponibles) {
+        if  (copiasDisponibles < 0) {
+            throw new IllegalArgumentException("copiasDisponibles negativo");
+        }
         this.copiasDisponibles = copiasDisponibles;
+        this.estado = (copiasDisponibles > 0) ? "disponible" : "no disponible";
     }
 
     public String getEstado() {
@@ -71,5 +89,12 @@ public class Libro {
         this.estado = estado;
     }
 }
+
+//class prueba{
+//    public static void main(String[] args) {
+//        Libro libro = new Libro("Rayuela", "Julio Cortázar","B973F45893RT", 1970, 0);
+//        System.out.println(libro);
+//    }
+//}
 
 
