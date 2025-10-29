@@ -1,6 +1,6 @@
 package modelos;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 
@@ -9,15 +9,15 @@ public class Prestamo {
     private int id;
     private Usuario usuario;
     private Libro libro;
-    private LocalDate fechaInicio;
-    private LocalDate fechaFin;
+    private LocalDateTime fechaInicio;
+    private LocalDateTime fechaFin;
     private String estado; // activo, devuelto, vencido
 
     public Prestamo(Usuario usuario, Libro libro){
         this.id = Prestamo.contador++;
         this.usuario = usuario;
         this.libro = libro;
-        this.fechaInicio = LocalDate.now();
+        this.fechaInicio = LocalDateTime.now();
         this.estado = "activo";
     }
 
@@ -25,8 +25,8 @@ public class Prestamo {
     public String toString() {
         return "Prestamo{" +
                 "id=" + this.id +
-                ", usuario=" + this.usuario +
-                ", libro=" + this.libro +
+                ", usuario=" + this.usuario.getNombre() + " " + this.usuario.getApellido() +
+                ", libro=" + this.libro.getTitulo() +
                 ", fechaInicio=" + getFechaInicio() +
                 ", fechaFin=" + getFechaFin() +
                 ", estado='" + this.estado + '\'' +
@@ -65,5 +65,16 @@ public class Prestamo {
 
     public void setEstado(String estado) {
         this.estado = estado;
+    }
+}
+
+class Prueba{
+    public static void main(String[] args) {
+        Usuario usuario = new Usuario("Jonathan", "Quinte", "0987654321", "0912345678", "jonathanquinte6@gmail.com");
+        Libro libro = new Libro("Rayuela", "Júlio Cortazar", "01239ASD34", 1998, 1);
+
+        Prestamo prestamo = new Prestamo(usuario, libro);
+
+        System.out.println(prestamo);
     }
 }
