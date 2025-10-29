@@ -1,6 +1,8 @@
 package modelos;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Locale;
 
 public class Prestamo {
     private static int contador = 0;
@@ -11,5 +13,57 @@ public class Prestamo {
     private LocalDate fechaFin;
     private String estado; // activo, devuelto, vencido
 
-    public Prestamo() {}
+    public Prestamo(Usuario usuario, Libro libro){
+        this.id = Prestamo.contador++;
+        this.usuario = usuario;
+        this.libro = libro;
+        this.fechaInicio = LocalDate.now();
+        this.estado = "activo";
+    }
+
+    @Override
+    public String toString() {
+        return "Prestamo{" +
+                "id=" + this.id +
+                ", usuario=" + this.usuario +
+                ", libro=" + this.libro +
+                ", fechaInicio=" + getFechaInicio() +
+                ", fechaFin=" + getFechaFin() +
+                ", estado='" + this.estado + '\'' +
+                '}';
+    }
+
+    public static int getContador() {
+        return Prestamo.contador;
+    }
+
+    public int getId() {
+        return this.id;
+    }
+
+    public Usuario getUsuario() {
+        return this.usuario;
+    }
+
+    public Libro getLibro() {
+        return this.libro;
+    }
+
+    public String getFechaInicio() {
+        DateTimeFormatter fechaHoraFormato = DateTimeFormatter.ofPattern("dd MMM yyyy, H:mm", new Locale("es", "EC"));
+        return this.fechaInicio.format(fechaHoraFormato);
+    }
+
+    public String getFechaFin() {
+        DateTimeFormatter fechaHoraFormato = DateTimeFormatter.ofPattern("dd MMM yyyy, H:mm", new Locale("es", "EC"));
+        return this.fechaInicio.plusDays(30).format(fechaHoraFormato);
+    }
+
+    public String getEstado() {
+        return this.estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
 }
