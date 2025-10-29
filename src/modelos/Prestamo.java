@@ -5,6 +5,8 @@ import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 
 public class Prestamo {
+    private static final DateTimeFormatter FECHA_HORA_FORMATO = DateTimeFormatter.ofPattern("dd MMM yyyy, H:mm",
+            new Locale("es", "EC"));
     private static int contador = 0;
     private int id;
     private Usuario usuario;
@@ -50,13 +52,11 @@ public class Prestamo {
     }
 
     public String getFechaInicio() {
-        DateTimeFormatter fechaHoraFormato = DateTimeFormatter.ofPattern("dd MMM yyyy, H:mm", new Locale("es", "EC"));
-        return this.fechaInicio.format(fechaHoraFormato);
+        return this.fechaInicio.format(FECHA_HORA_FORMATO);
     }
 
     public String getFechaFin() {
-        DateTimeFormatter fechaHoraFormato = DateTimeFormatter.ofPattern("dd MMM yyyy, H:mm", new Locale("es", "EC"));
-        return this.fechaInicio.plusDays(30).format(fechaHoraFormato);
+        return this.fechaInicio.plusDays(30).format(FECHA_HORA_FORMATO);
     }
 
     public String getEstado() {
@@ -68,13 +68,13 @@ public class Prestamo {
     }
 }
 
-class Prueba{
-    public static void main(String[] args) {
-        Usuario usuario = new Usuario("Jonathan", "Quinte", "0987654321", "0912345678", "jonathanquinte6@gmail.com");
-        Libro libro = new Libro("Rayuela", "Júlio Cortazar", "01239ASD34", 1998, 1);
-
-        Prestamo prestamo = new Prestamo(usuario, libro);
-
-        System.out.println(prestamo);
-    }
-}
+//class Prueba{
+//    public static void main(String[] args) {
+//        Usuario usuario = new Usuario("Jonathan", "Quinte", "0987654321", "0912345678", "jonathanquinte6@gmail.com");
+//        Libro libro = new Libro("Rayuela", "Júlio Cortazar", "01239ASD34", 1998, 1);
+//
+//        Prestamo prestamo = new Prestamo(usuario, libro);
+//
+//        System.out.println(prestamo);
+//    }
+//}
