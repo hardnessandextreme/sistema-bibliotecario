@@ -29,7 +29,7 @@ public class Multa {
                 ", usuario=" + this.usuario +
                 ", monto=" + this.monto +
                 ", motivo='" + this.motivo + '\'' +
-                ", fecha=" + this.fecha +
+                ", fecha=" + getFechaString() +
                 ", pagada=" + this.pagada +
                 '}';
     }
@@ -58,7 +58,7 @@ public class Multa {
         return this.fecha;
     }
 
-    public String getFecchaString() {
+    public String getFechaString() {
         return this.fecha.format(FechaUtil.FECHA_HORA_FORMATO);
     }
 
@@ -70,3 +70,13 @@ public class Multa {
         this.pagada = pagada;
     }
 }
+
+//class Prueba{
+//    public static void main(String[] args) {
+//        Usuario usuario = new Usuario("Jonathan", "Quinte", "0987654321", "0912345678", "jonathanquinte6@gmail.com");
+//
+//        Multa multa = new Multa(usuario, 100.0, "Se excedio el limite de pago.");
+//
+//        System.out.println(multa);
+//    }
+//}
