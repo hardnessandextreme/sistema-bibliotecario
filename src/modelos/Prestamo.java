@@ -5,21 +5,24 @@ import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 
 public class Prestamo {
+    private static int DIAS_GRACIA = 30;
     private static final DateTimeFormatter FECHA_HORA_FORMATO = DateTimeFormatter.ofPattern("dd MMM yyyy, H:mm",
             new Locale("es", "EC"));
     private static int contador = 0;
-    private int id;
+    private final int id;
     private Usuario usuario;
     private Libro libro;
     private LocalDateTime fechaInicio;
     private LocalDateTime fechaFin;
     private String estado; // activo, devuelto, vencido
+    private int diasTranscurridos;
 
     public Prestamo(Usuario usuario, Libro libro){
         this.id = Prestamo.contador++;
         this.usuario = usuario;
         this.libro = libro;
         this.fechaInicio = LocalDateTime.now();
+        this.fechaFin = this.fechaInicio.plusDays(Prestamo.DIAS_GRACIA);
         this.estado = "activo";
     }
 
@@ -29,8 +32,8 @@ public class Prestamo {
                 "id=" + this.id +
                 ", usuario=" + this.usuario.getNombre() + " " + this.usuario.getApellido() +
                 ", libro=" + this.libro.getTitulo() +
-                ", fechaInicio=" + getFechaInicio() +
-                ", fechaFin=" + getFechaFin() +
+                ", fechaInicio=" + getFechaInicioString() +
+                ", fechaFin=" + getFechaFinString() +
                 ", estado='" + this.estado + '\'' +
                 '}';
     }
@@ -51,12 +54,20 @@ public class Prestamo {
         return this.libro;
     }
 
-    public String getFechaInicio() {
+    public LocalDateTime getFechaInicio() {
+        return this.fechaInicio;
+    }
+
+    public String getFechaInicioString() {
         return this.fechaInicio.format(FECHA_HORA_FORMATO);
     }
 
-    public String getFechaFin() {
-        return this.fechaInicio.plusDays(30).format(FECHA_HORA_FORMATO);
+    public LocalDateTime getFechaFin() {
+        return this.fechaFin;
+    }
+
+    public String getFechaFinString() {
+        return this.fechaFin.format(FECHA_HORA_FORMATO);
     }
 
     public String getEstado() {
