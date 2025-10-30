@@ -95,7 +95,7 @@ public class Usuario {
 
 //class prueba{
 //    public static void main(String[] args) {
-//        Usuario usuario = new Usuario("Jonathan");
+//        Usuario usuario = new Usuario("Jonathan", "Quinte", "0987654321", "0912345678", "jonathanquinte6@gmail.com");
 //
 //        System.out.println(usuario);
 //    }
