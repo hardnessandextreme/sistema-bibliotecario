@@ -1,14 +1,16 @@
 package modelos;
 
-import java.time.LocalDate;
+import util.FechaUtil;
+
+import java.time.LocalDateTime;
 
 public class Multa {
     private static int contador = 0;
-    private int id;
+    private final int id;
     private Usuario usuario;
     private double monto;
     private String motivo;
-    private LocalDate fecha;
+    private LocalDateTime fecha;
     private boolean pagada;
 
     public Multa(Usuario usuario, double monto, String motivo) {
@@ -16,7 +18,7 @@ public class Multa {
         this.usuario = usuario;
         this.monto = monto;
         this.motivo = motivo;
-        this.fecha = LocalDate.now();
+        this.fecha = LocalDateTime.now();
         this.pagada = false;
     }
 
@@ -44,10 +46,6 @@ public class Multa {
         return this.usuario;
     }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
-    }
-
     public double getMonto() {
         return this.monto;
     }
@@ -56,8 +54,12 @@ public class Multa {
         return this.motivo;
     }
 
-    public LocalDate getFecha() {
+    public LocalDateTime getFecha() {
         return this.fecha;
+    }
+
+    public String getFecchaString() {
+        return this.fecha.format(FechaUtil.FECHA_HORA_FORMATO);
     }
 
     public boolean isPagada() {

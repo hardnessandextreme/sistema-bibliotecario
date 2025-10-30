@@ -1,13 +1,11 @@
 package modelos;
 
+import util.FechaUtil;
+
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.Locale;
 
 public class Prestamo {
     private static int DIAS_GRACIA = 30;
-    private static final DateTimeFormatter FECHA_HORA_FORMATO = DateTimeFormatter.ofPattern("dd MMM yyyy, H:mm",
-            new Locale("es", "EC"));
     private static int contador = 0;
     private final int id;
     private Usuario usuario;
@@ -59,7 +57,7 @@ public class Prestamo {
     }
 
     public String getFechaInicioString() {
-        return this.fechaInicio.format(FECHA_HORA_FORMATO);
+        return this.fechaInicio.format(FechaUtil.FECHA_HORA_FORMATO);
     }
 
     public LocalDateTime getFechaFin() {
@@ -67,7 +65,7 @@ public class Prestamo {
     }
 
     public String getFechaFinString() {
-        return this.fechaFin.format(FECHA_HORA_FORMATO);
+        return this.fechaFin.format(FechaUtil.FECHA_HORA_FORMATO);
     }
 
     public String getEstado() {

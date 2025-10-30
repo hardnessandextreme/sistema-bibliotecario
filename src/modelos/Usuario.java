@@ -1,5 +1,7 @@
 package modelos;
 
+import util.FechaUtil;
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
@@ -87,8 +89,7 @@ public class Usuario {
     }
 
     public String getFechaRegistroUsuario() {
-        DateTimeFormatter fechaHoraFormato = DateTimeFormatter.ofPattern("dd MMM yyyy, H:mm", new Locale("es", "EC"));
-        return this.fechaRegistroUsuario.format(fechaHoraFormato);
+        return this.fechaRegistroUsuario.format(FechaUtil.FECHA_HORA_FORMATO);
     }
 }
 
